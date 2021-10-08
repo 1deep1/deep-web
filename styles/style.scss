@@ -1,0 +1,11 @@
+$font: 'Graphik LCG';
+$darkBG: #181818;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+
+  background: $darkBG;
+  font-family: $font, sans-serif;
+}
