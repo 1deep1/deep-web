@@ -1,4 +1,4 @@
-//import '../styles/globals.css'
+import '../public/fonts/GraphikLCG/stylesheet.css'
 import '../styles/style.scss'
 
 function MyApp({ Component, pageProps }) {

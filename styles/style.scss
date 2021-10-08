@@ -1,6 +1,7 @@
 $font: 'Graphik LCG';
 $darkBG: #181818;
 
+
 html,
 body {
   padding: 0;
@@ -8,4 +9,13 @@ body {
 
   background: $darkBG;
   font-family: $font, sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+  
+* {
+    box-sizing: border-box;
 }

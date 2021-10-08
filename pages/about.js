@@ -1,5 +1,9 @@
+import { MainComp } from '../components/MainComp'
+
 export default function About() {
     return (
-        <h2>About</h2>
+        <MainComp title={'О нас'}>
+        <h1>About</h1>
+        </MainComp>
     )
 }
