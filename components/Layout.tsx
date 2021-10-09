@@ -1,51 +1,71 @@
 import React, { ReactNode } from 'react'
 import Link from 'next/link'
+import { useRouter } from "next/router";
 import Head from 'next/head'
+import Image from 'next/image'
 
 type Props = {
   children?: ReactNode
   title?: string
 }
 
-const Layout = ({ children, title = 'deep' }: Props) => (
-  <div>
-    <Head>
-      <title>{title} | deepProject</title>
-      <meta charSet="utf-8" />
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
-    <header>
-        <nav className="navbar navbar-expand-lg navbar-light">
-            <div className="container-fluid">
-                <a className="navbar-brand" href="#">Navbar</a>
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-                </button>
-                <div className="collapse navbar-collapse" id="navbarNav">
-                <ul className="navbar-nav">
-                    <li className="nav-item">
-                    <a className="nav-link active" aria-current="page" href="#">Home</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" href="#">Features</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link" href="#">Pricing</a>
-                    </li>
-                    <li className="nav-item">
-                    <a className="nav-link disabled">Disabled</a>
-                    </li>
-                </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
-    {children}
-    <footer>
-      <hr />
-      <span>I'm here to stay (Footer)</span>
-    </footer>
-  </div>
-)
+const linkHover = (
+  event: React.MouseEvent<HTMLAnchorElement>
+) => {
+  event.stopPropagation();
+
+  const heading = event.currentTarget;
+  heading.className = "nav-link px-2 text-secondary";
+};
+
+const linkWhite = (
+  event: React.MouseEvent<HTMLAnchorElement>
+) => {
+  event.stopPropagation();
+
+  const heading = event.currentTarget;
+  heading.className = "nav-link px-2 text-white";
+};
+
+const Layout = ({ children, title = 'deep' }: Props) => {
+  const router = useRouter();
+
+  return (
+    <div>
+      <Head>
+        <title>{title} | deepProject</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
+      <header className="p-3 bg-dark text-white">
+      <div className="container">
+        <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+          <Link href="/"><a className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+            <Image src="/deepLogo.png" width={185} height={80} />
+          </a>
+          </Link>
+  
+          <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><Link href="/"><a className={router.pathname == "/" ? "nav-link px-2 text-secondary" : "nav-link px-2 text-white"}>Главная</a></Link></li>
+            <li><Link href="/works"><a className={router.pathname == "/works" ? "nav-link px-2 text-secondary" : "nav-link px-2 text-white"}>Работы</a></Link></li>
+            <li><Link href="/contacts"><a className={router.pathname == "/contacts" ? "nav-link px-2 text-secondary" : "nav-link px-2 text-white"}>Контакты</a></Link></li>
+          </ul>
+  
+          <div className="text-end">
+            <button type="button" className="btn btn-link text-white me-1 text-underline-hover">Зарегистрироваться</button>
+            <button type="button" className="btn btn-outline-light">Войти</button>
+          </div>
+        </div>
+      </div>
+      </header>
+      {children}
+      <footer className="p-5 bg-footer text-white">
+          <div className="d-flex justify-content-center">
+            <p className="mb-0">© deep 2021. Все права защищены. Копирование информации запрещено.</p>
+          </div>
+      </footer>
+    </div>
+  )
+}
 
 export default Layout
