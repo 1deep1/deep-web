@@ -28,6 +28,20 @@ $font-family-sans-serif:
 @import "~bootstrap/scss/bootstrap";
 @import "/fonts/GraphikLCG/stylesheet.css";
 
+.container {
+    max-width: 960px;
+}
+
+.menu__1 {
+    max-width: 100%;
+    border-radius: 25px;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 80px;
+}
+
 .nav-link:hover {
     color: rgb(108, 117, 125) !important;
 }
@@ -40,6 +54,32 @@ $font-family-sans-serif:
     color: rgb(108, 117, 125) !important;
 }
 
+.btn-main {
+    font-weight: 600;
+    font-size: 23px;
+}
+
+.block-head {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.cardBox {
+    display: flex;
+    flex-direction: column;
+}
+
 .bg-footer {
     background: #151515;
+}
+
+
+@media (max-width: 700px) { 
+    h2 {
+        font-size: 40px;
+    }
+
+    .btn-main {
+        font-size: 15px;
+    }
 }

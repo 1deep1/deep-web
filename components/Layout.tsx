@@ -38,11 +38,18 @@ const Layout = ({ children, title = 'deep' }: Props) => {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <header className="p-3 bg-dark text-white">
-      <div className="container">
+      <div className="container py-3">
         <div className="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-          <Link href="/"><a className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+          <div className="collapse" id="navbarToggleExternalContent">
+            <div className="bg-dark p-4">
+              <h5 className="text-white h4">Collapsed content</h5>
+              <span className="text-muted">Toggleable via the navbar brand.</span>
+            </div>
+          </div>
+          <Link href="/">
+            <a className="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none me-4">
             <Image src="/deepLogo.png" width={185} height={80} />
-          </a>
+            </a>
           </Link>
   
           <ul className="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
