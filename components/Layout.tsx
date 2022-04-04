@@ -1,8 +1,11 @@
-import React, { ReactNode } from 'react'
+import React, { ReactNode, useState } from 'react'
 import Link from 'next/link'
 import { useRouter } from "next/router";
 import Head from 'next/head'
 import Image from 'next/image'
+
+import { Modal } from "reactstrap";
+import ModalWindow from './Modal/Modal';
 
 type Props = {
   children?: ReactNode
@@ -29,11 +32,12 @@ const linkWhite = (
 
 const Layout = ({ children, title = 'deep' }: Props) => {
   const router = useRouter();
+  const [modalOpen, setModalOpen] = React.useState(false);
 
   return (
     <div>
       <Head>
-        <title>{title} | deepProject</title>
+        <title>{title} | deep</title>
         <meta charSet="utf-8" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
@@ -57,18 +61,22 @@ const Layout = ({ children, title = 'deep' }: Props) => {
             <li><Link href="/works"><a className={router.pathname == "/works" ? "nav-link px-2 text-secondary" : "nav-link px-2 text-white"}>Работы</a></Link></li>
             <li><Link href="/contacts"><a className={router.pathname == "/contacts" ? "nav-link px-2 text-secondary" : "nav-link px-2 text-white"}>Контакты</a></Link></li>
           </ul>
-  
+          
           <div className="text-end">
-            <button type="button" className="btn btn-link text-white me-1 text-underline-hover">Зарегистрироваться</button>
-            <button type="button" className="btn btn-outline-light">Войти</button>
+            <button type="button" onClick={() => setModalOpen(!modalOpen)} className="btn btn-outline-light">Сделать заказ!</button>
           </div>
         </div>
       </div>
       </header>
       {children}
+
+      <Modal toggle={() => setModalOpen(!modalOpen)} isOpen={modalOpen}>
+        <ModalWindow/>
+      </Modal>
+
       <footer className="p-5 bg-footer text-white">
           <div className="d-flex justify-content-center">
-            <p className="mb-0">© deep 2021. Все права защищены. Копирование информации запрещено.</p>
+            <p className="mb-0">© deep 2022. Все права защищены. Копирование информации запрещено.</p>
           </div>
       </footer>
     </div>

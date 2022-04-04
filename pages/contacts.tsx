@@ -4,12 +4,10 @@ import Layout from '../components/Layout'
 
 const ContactsPage:NextPage = () => (
   <Layout title="Контакты">
-    <h1>👋👋👋</h1>
-    <p>
-      <Link href="/about">
-        <a>About</a>
-      </Link>
-    </p>
+    <main className="container">
+      <h1 className="text-light title-text mb-md-4">Контакты:</h1>
+
+    </main>
   </Layout>
 )
 
