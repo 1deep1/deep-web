@@ -82,6 +82,136 @@ h2 {
     background-color: #ffffff;
 }
 
+.text-title-under {
+    opacity: 0.65;
+    font-size: 24px;
+}
+
+.main-text {
+    color: white;
+    font-size: 16px;
+}
+
+.slider-img {
+    max-height: 450px;
+}
+
+.card-text-sm {
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+.any-link {
+    cursor: pointer;
+}
+
+//timeline
+
+.timeline {
+    width: 85%;
+    height: auto;
+    max-width: 600px;
+    margin: 0 auto;
+    position: relative;
+    color: #ffffff;
+}
+
+.timeline ul {
+    list-style: none;
+}
+
+.timeline ul li {
+    padding: 20px;
+    background-color: #4a4a4a;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.timeline ul li:last-child {
+    margin-bottom: 40px;
+}
+
+.timeline ul li:first-child {
+    margin-top: 20px;
+}
+
+.timeline-content h1 {
+    font-size: 25px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    font-size: 16px;
+}
+
+.timeline-content .date {
+    font-size: 13px;
+    font-weight: 300;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+@media only screen and (min-width: 769px){
+    .timeline::before {
+        content: '';
+        position: absolute;
+        height: 100%;
+        width: 3px;
+        transform: translateX(15px);
+        left: 50%;
+        background-color: #ffffff;
+    }
+
+    .timeline ul li {
+        width: 50%;
+        margin-bottom: 50px;
+        position: relative;
+    }
+
+    .timeline ul li:nth-child(odd) {
+        float: left;
+        clear: right;
+        transform: translateX(-30px);
+    }
+
+    .timeline ul li:nth-child(even) {
+        float: right;
+        clear: left;
+        transform: translateX(30px);
+    }
+
+    .timeline ul li::after {
+        content: '';
+        position: absolute;
+        height: 20px;
+        width: 20px;
+        background-color: #ffffff;
+        border-radius: 50%;
+
+        top: 0;
+    }
+
+    .timeline ul li:nth-child(odd)::after {
+        transform: translate(50%, -50%);
+        right: 0%;
+    }
+
+    .timeline ul li:nth-child(even)::after {
+        transform: translate(50%, -50%);
+        right: 100%;
+    }
+
+    .timeline ul li:hover::after {
+        background-color: $primary;
+    }
+
+    .timeline-content .date {
+        position: absolute;
+        top: -11%;
+    }
+}
 
 @media (max-width: 700px) { 
     h2 {
